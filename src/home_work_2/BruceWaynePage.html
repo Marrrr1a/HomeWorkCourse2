@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>
+        DefinitelyNotBatman
+    </title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .background-and-display {
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('fonts_and_images/Wayne_Enterprises_logo.jpg');
+            background-size: 150px;
+            background-position: center;
+            opacity: 1;
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            text-align: center;
+        }
+
+        .main-block {
+            max-width: 900px;
+            padding: 30px;
+        }
+
+        @font-face {
+            font-family: 'Belion Radego';
+            src: url('fonts_and_images/BelionRadego-zrO73.otf') format('opentype');
+        }
+
+        h1 {
+            color: #F4E7EE;
+            font-family: 'Belion Radego';
+            font-size: 5rem;
+            font-weight: normal;
+            margin-bottom: -75px;
+            letter-spacing: 2px;
+        }
+
+        p {
+            color: #F4E7EE;
+            font-family: 'Times new roman';
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+        }
+
+        .profile-pic {
+            background-color: #F4E7EE;
+            width: 170px;
+            height: 170px;
+            border-radius: 100px;
+            object-fit: cover;
+            object-position: top;
+            border: 3px solid #F4E7EE;
+            margin-bottom: 20px;
+        }
+
+        .contact {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .button {
+            text-decoration: none;
+            color: #F4E7EE;
+            border: 2px solid #F4E7EE;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: normal;
+            font-size: 1rem;
+            background: black;
+            font-family: 'Times new roman';
+        }
+
+        .button:hover {
+            background: #F4E7EE; /* Заливка белым */
+            color: black; /* Текст становится темным */
+        }
+
+        .switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+        }
+
+    </style>
+</head>
+
+<body>
+<section class="background-and-display" id="background">
+    <div class="main-block">
+        <img src="fonts_and_images/bruce.png" class="profile-pic" alt="profile picture" id="picture">
+        <h1 id="name">Bruce Wayne</h1>
+        <p id="bioX">Successful businessman and the owner of Wayne Enterprises.
+            Wealthy philanthropist who supports technology, charity projects and the development of Gotham City</p>
+        <p id="bioY">Contact me via:</p>
+        <div class="contact" id="allButtons">
+            <a href="https://en.wikipedia.org/wiki/Alfred_Pennyworth" class="button">Alfred</a>
+            <a href="#" class="button">mail</a>
+            <a href="#" class="button">fax</a>
+        </div>
+    </div>
+</section>
+<div class="switch">
+    <button class="button" onclick="switchTheme()">Change personality</button>
+</div>
+<script>
+    alert("WELCOME");
+    var batman = false;
+
+        function switchTheme() {
+            const background = document.getElementById('background');
+            const picture = document.getElementById('picture');
+            const name = document.getElementById('name');
+            const bioX = document.getElementById('bioX');
+            const bioY = document.getElementById('bioY');
+            const allButtons = document.getElementById('allButtons');
+
+            if (!batman) {
+                background.style.backgroundImage = "url('fonts_and_images/batsignal.jpg')";
+                background.style.backgroundRepeat = "no-repeat";
+                background.style.backgroundSize = "100% 100%";
+                picture.src = "fonts_and_images/batman.jpg";
+                name.innerText = "BATMAN";
+                bioX.innerText = "";
+                bioY.innerText = "";
+                allButtons.style.display = "none";
+
+            } else {
+                background.style.backgroundImage = "linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url('fonts_and_images/Wayne_Enterprises_logo.jpg')";
+                background.style.backgroundRepeat = "repeat";
+                background.style.backgroundSize = "150px";
+                picture.src = "fonts_and_images/bruce.png";
+                name.innerText = "Bruce Wayne";
+                bioX.innerText = "Successful businessman and the owner of Wayne Enterprises. Wealthy philanthropist who supports technology, charity projects and the development of Gotham City";
+                bioY.innerText = "Contact me via:"
+                allButtons.style.display = "flex";
+            }
+            batman = !batman;
+        }
+</script>
+</body>
+</html>
+
